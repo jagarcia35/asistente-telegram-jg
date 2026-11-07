@@ -1,0 +1,16 @@
+# Atajo opcional: Render → New → Blueprint lee este archivo y crea el servicio.
+# Si prefieres hacerlo a mano (New → Web Service), sigue el README, sección 4: es lo mismo.
+services:
+  - type: web
+    name: mi-asistente
+    runtime: python
+    plan: free
+    buildCommand: uv sync --locked --no-dev
+    startCommand: uv run --no-sync bot.py
+    envVars:
+      - key: GEMINI_API_KEY_LOCAL
+        sync: false # Render te la pide al crear el servicio; no va en el código
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: TELEGRAM_PERMITIDOS
+        sync: false

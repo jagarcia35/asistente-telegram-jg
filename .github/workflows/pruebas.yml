@@ -1,0 +1,13 @@
+# Corre las pruebas (sin modelo real ni claves) en cada push y pull request.
+name: pruebas
+
+on: [push, pull_request]
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - run: uv run pytest
