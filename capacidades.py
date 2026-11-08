@@ -54,7 +54,7 @@ apis = Capability(
 
 
 @apis.tool_plain
-def clima_lapaz() -> dict:
+async def clima_lapaz() -> dict:
     """Temperatura actual de La Paz, según Open Meteo."""
     params = {"latitude": -16.5, "longitude": -68.15, "current": "temperature_2m"}
     respuesta = httpx.get("https://api.open-meteo.com/v1/forecast", params=params, timeout=10)
