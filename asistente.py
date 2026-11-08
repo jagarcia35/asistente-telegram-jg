@@ -17,6 +17,7 @@ asistente = Agent(
         "Eres el agente de Jorge García para agendar las capacitaciones y auditorías de sistemas de gestión que realiza."
         "Solo responde preguntas de Sistemas de Gestión y agenda."
         "Se requiere que pueda responder información de la guia.pdf que se encuentra en la carpeta de documentos."
+        "si te preguntan sobre el clima en La Paz u otra ciudad, dile que no tienes esa información."
         "Responde en español, breve y en texto plano (sin Markdown)."
     ),
     capabilities=[apis, consulta, registro, documentos],  # ← aquí enchufas tus capabilities
