@@ -19,12 +19,12 @@ from pypdf import PdfReader
 
 from config import DATOS, settings
 
-# ═══ S1 · Tools de lectura con APIs públicas ══════════════════════════════════════════
-apis = Capability(
-    id="apis_publicas",
-    description="Consulta indicadores económicos (Banco Mundial) y clima (Open Meteo) con sus APIs públicas",
-    instructions="Usa las APIs para obtener datos reales. Si una API no tiene el dato, dilo, y no inventes datos",
-)
+# # ═══ S1 · Tools de lectura con APIs públicas ══════════════════════════════════════════
+# apis = Capability(
+#     id="apis_publicas",
+#     description="Consulta indicadores económicos (Banco Mundial) y clima (Open Meteo) con sus APIs públicas",
+#     instructions="Usa las APIs para obtener datos reales. Si una API no tiene el dato, dilo, y no inventes datos",
+# )
 
 
 # @apis.tool_plain
@@ -53,13 +53,13 @@ apis = Capability(
 #     }
 
 
-@apis.tool_plain
-async def clima_lapaz() -> dict:
-    """Temperatura actual de La Paz, según Open Meteo."""
-    params = {"latitude": -16.5, "longitude": -68.15, "current": "temperature_2m"}
-    respuesta = httpx.get("https://api.open-meteo.com/v1/forecast", params=params, timeout=10)
-    respuesta.raise_for_status()
-    return {"temperatura": respuesta.json()["current"]["temperature_2m"], "fuente": "Open Meteo"}
+# @apis.tool_plain
+# async def clima_lapaz() -> dict:
+#     """Temperatura actual de La Paz, según Open Meteo."""
+#     params = {"latitude": -16.5, "longitude": -68.15, "current": "temperature_2m"}
+#     respuesta = httpx.get("https://api.open-meteo.com/v1/forecast", params=params, timeout=10)
+#     respuesta.raise_for_status()
+#     return {"temperatura": respuesta.json()["current"]["temperature_2m"], "fuente": "Open Meteo"}
 
 # ═══ S1 · Mi contador: gastos en SQLite, una tool que lee y otra que escribe ══════════
 
