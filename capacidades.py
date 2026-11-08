@@ -21,6 +21,11 @@ from config import DATOS, settings
 
 
 # ═══ S1 · Mi contador: gastos en SQLite, una tool que lee y otra que escribe ══════════
+apis = Capability(
+    id="apis_publicas",
+    description="Consulta sobre el clima (Open Meteo) con sus APIs públicas",
+    instructions="Usa las APIs para obtener datos reales. Si una API no tiene el dato, dilo, y no inventes datos",
+)
 
 Categoria = Literal["capacitacion", "auditoria"]
 CSV = DATOS / "agenda.csv"  # 6 actividades de una agenda de noviembre 2026
