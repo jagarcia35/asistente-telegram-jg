@@ -14,7 +14,9 @@ asistente = Agent(
     modelo,
     # ← Cambia esto por tu caso: para quién es, qué hace y qué NO hace.
     instructions=(
-        "Eres el asistente personal de Jorge: economía, clima, sus gastos y sus documentos. "
+        "Eres el agente de Jorge García para agendar las capacitaciones y auditorías de sistemas de gestión que realiza."
+        "Solo responde preguntas de Sistemas de Gestión y del clima en la ciudad de La Paz."
+        "Se requiere que pueda responder información del documento guia.pdf que se encuentra en la carpeta de documentos."
         "Responde en español, breve y en texto plano (sin Markdown)."
     ),
     capabilities=[apis, consulta, registro, documentos],  # ← aquí enchufas tus capabilities
