@@ -19,47 +19,6 @@ from pypdf import PdfReader
 
 from config import DATOS, settings
 
-# # ═══ S1 · Tools de lectura con APIs públicas ══════════════════════════════════════════
-# apis = Capability(
-#     id="apis_publicas",
-#     description="Consulta indicadores económicos (Banco Mundial) y clima (Open Meteo) con sus APIs públicas",
-#     instructions="Usa las APIs para obtener datos reales. Si una API no tiene el dato, dilo, y no inventes datos",
-# )
-
-
-# @apis.tool_plain
-# def inflacion(pais: str, anio: int) -> dict:
-#     """Inflación anual de un país en un año, según el Banco Mundial.
-
-#     Args:
-#         pais: código ISO del país, por ejemplo 'BO' para Bolivia o 'PE' para Perú
-#         anio: año, por ejemplo 2024
-#     """
-#     url = f"https://api.worldbank.org/v2/country/{pais}/indicator/FP.CPI.TOTL.ZG"
-#     respuesta = httpx.get(url, params={"date": anio, "format": "json"}, timeout=10)
-#     respuesta.raise_for_status()
-#     datos = respuesta.json()
-
-#     # La API responde [metadatos, registros]. Si no hay dato, devolvemos un aviso que el modelo puede leer
-#     if len(datos) < 2 or not datos[1] or datos[1][0]["value"] is None:
-#         return {"error": f"No hay datos de inflación disponibles para {pais} en {anio}"}
-
-#     registro = datos[1][0]
-#     return {
-#         "pais": registro["country"]["value"],
-#         "anio": registro["date"],
-#         "inflacion_pct": round(registro["value"], 2),
-#         "fuente": "Banco Mundial",  # devolver la fuente evita que el modelo invente una
-#     }
-
-
-# @apis.tool_plain
-# async def clima_lapaz() -> dict:
-#     """Temperatura actual de La Paz, según Open Meteo."""
-#     params = {"latitude": -16.5, "longitude": -68.15, "current": "temperature_2m"}
-#     respuesta = httpx.get("https://api.open-meteo.com/v1/forecast", params=params, timeout=10)
-#     respuesta.raise_for_status()
-#     return {"temperatura": respuesta.json()["current"]["temperature_2m"], "fuente": "Open Meteo"}
 
 # ═══ S1 · Mi contador: gastos en SQLite, una tool que lee y otra que escribe ══════════
 
